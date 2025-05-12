@@ -10,6 +10,16 @@ This project implements a vertically-focused AI agent specifically designed for 
 
 The system follows a layered architecture with specialized components:
 
+### 0. Autonomous Agent Framework
+
+The foundation that enables autonomous operation:
+
+- **Task Manager**: Coordinates high-level tasks and breaks them into actionable steps
+- **Execution Engine**: Runs sequences of operations with appropriate dependencies
+- **Decision Engine**: Makes informed choices between alternative approaches
+- **Monitoring System**: Tracks progress and detects issues during execution
+- **Feedback Loop**: Incorporates results from previous steps into ongoing execution
+
 ### 1. Core LLM Engine
 
 The foundation of the system is a large language model optimized for code understanding:
@@ -85,6 +95,16 @@ Enterprise-grade security measures:
 - **Compliance**: Adherence to relevant regulations and standards
 
 ## Key Features
+
+### Autonomous Operation
+
+- **Autonomous Mode**: Complete tasks end-to-end with minimal human intervention
+- **Self-Directed Workflow**: Determine necessary steps and execute them automatically
+- **Continuous Operation**: Run extended sequences of actions without requiring approval for each step
+- **Goal-Oriented Execution**: Work toward high-level objectives by planning and executing required actions
+- **Autonomous Decision Making**: Make informed decisions about the best approach to solve problems
+- **Self-Monitoring**: Track progress and adjust approach based on intermediate results
+- **Failure Recovery**: Detect when approaches aren't working and try alternative strategies
 
 ### Intelligent Code Understanding
 
