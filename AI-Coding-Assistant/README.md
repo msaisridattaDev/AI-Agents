@@ -232,28 +232,31 @@ Enterprise-grade security measures:
 ### Prerequisites
 
 - Python 3.10+
-- Node.js 18+
-- Git
 - Access to an LLM API (OpenAI, Anthropic, etc.)
 
 ### Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/ai-coding-assistant.git
-cd ai-coding-assistant
+git clone https://github.com/msaisridattaDev/AI-Agents.git
+cd AI-Agents/AI-Coding-Assistant
+
+# Create a virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
-npm install
 
 # Configure the assistant
 cp config.example.json config.json
 # Edit config.json with your API keys and preferences
 
 # Start the assistant
-python src/main.py
+python -m ai_coding_assistant.main --config config.json
 ```
+
+The server will start on http://127.0.0.1:8000 by default.
 
 ### Configuration
 
@@ -264,24 +267,76 @@ The assistant can be configured through `config.json`:
   "llm": {
     "provider": "anthropic",
     "model": "claude-3-opus-20240229",
-    "api_key": "your_api_key_here"
+    "api_key": "your_api_key_here",
+    "parameters": {
+      "temperature": 0.7,
+      "top_p": 0.9,
+      "max_tokens": 4000
+    }
   },
   "tools": {
-    "code_execution": {
-      "enabled": true,
-      "timeout": 30
+    "read_file": {
+      "enabled": true
     },
-    "file_system": {
-      "enabled": true,
-      "allowed_paths": ["./"]
+    "write_file": {
+      "enabled": true
+    },
+    "list_files": {
+      "enabled": true
+    },
+    "execute_command": {
+      "enabled": true
+    },
+    "search_code": {
+      "enabled": true
     }
   },
   "security": {
     "data_sharing": "minimal",
-    "audit_logging": true
+    "audit_logging": true,
+    "pii_detection": true
+  },
+  "memory": {
+    "conversation_limit": 50,
+    "vector_db": {
+      "type": "local",
+      "path": "./data/vector_db"
+    }
   }
 }
 ```
+
+## Implementation
+
+This project is implemented in Python with a modular architecture inspired by Continue.dev. The implementation includes:
+
+### Project Structure
+
+```
+ai_coding_assistant/
+├── core/           # Core engine components
+├── models/         # Model provider implementations
+├── context/        # Context management system
+├── tools/          # Tool implementations
+├── agents/         # Agent framework
+├── memory/         # Memory systems
+├── extensions/     # IDE extension interfaces
+├── web/            # Web UI components
+└── utils/          # Utility functions and helpers
+```
+
+### Core Components
+
+- **Engine**: Coordinates all functionality and manages the system
+- **Model Providers**: Abstractions for Anthropic and OpenAI LLMs
+- **Context Providers**: File, conversation, and repository context
+- **Tools**: File operations, shell commands, code search
+- **Agent Framework**: Planning and execution of complex tasks
+- **Memory Systems**: Short-term and long-term memory
+
+### Development
+
+For a detailed analysis of the architecture and implementation, see [DEVELOPMENT_NOTES.md](./DEVELOPMENT_NOTES.md).
 
 ## Conclusion
 

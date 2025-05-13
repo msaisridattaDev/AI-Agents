@@ -1,0 +1,36 @@
+from setuptools import setup, find_packages
+
+setup(
+    name="ai_coding_assistant",
+    version="0.1.0",
+    packages=find_packages(),
+    install_requires=[
+        "anthropic>=0.8.0",
+        "openai>=1.0.0",
+        "langchain>=0.1.0",
+        "pydantic>=2.0.0",
+        "fastapi>=0.100.0",
+        "uvicorn>=0.23.0",
+        "websockets>=11.0.0",
+        "python-dotenv>=1.0.0",
+        "numpy>=1.24.0",
+        "faiss-cpu>=1.7.4",
+        "chromadb>=0.4.0",
+        "gitpython>=3.1.30",
+        "tree-sitter>=0.20.0",
+        "pygments>=2.15.0",
+        "requests>=2.30.0",
+    ],
+    python_requires=">=3.10",
+    author="M Sai Sri Datta",
+    author_email="msaisridattaDev@gmail.com",
+    description="A production-grade AI coding assistant",
+    long_description=open("README.md").read(),
+    long_description_content_type="text/markdown",
+    url="https://github.com/msaisridattaDev/AI-Agents",
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+)

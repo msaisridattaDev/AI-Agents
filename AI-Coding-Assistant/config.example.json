@@ -1,0 +1,59 @@
+{
+  "llm": {
+    "provider": "anthropic",
+    "model": "claude-3-opus-20240229",
+    "api_key": "your_api_key_here",
+    "parameters": {
+      "temperature": 0.7,
+      "top_p": 0.9,
+      "max_tokens": 4000
+    }
+  },
+  "tools": {
+    "read_file": {
+      "enabled": true
+    },
+    "write_file": {
+      "enabled": true
+    },
+    "list_files": {
+      "enabled": true
+    },
+    "execute_command": {
+      "enabled": true
+    },
+    "search_code": {
+      "enabled": true
+    }
+  },
+  "security": {
+    "data_sharing": "minimal",
+    "audit_logging": true,
+    "pii_detection": true,
+    "sensitive_data_patterns": [
+      "password",
+      "api_key",
+      "secret",
+      "token",
+      "credential"
+    ]
+  },
+  "ui": {
+    "theme": "system",
+    "code_highlighting": true,
+    "suggestions_delay": 300,
+    "max_suggestions": 5
+  },
+  "memory": {
+    "conversation_limit": 50,
+    "vector_db": {
+      "type": "local",
+      "path": "./data/vector_db"
+    }
+  },
+  "performance": {
+    "cache_ttl": 3600,
+    "max_parallel_requests": 5,
+    "timeout": 60
+  }
+}
